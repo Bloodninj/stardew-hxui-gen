@@ -1,0 +1,15 @@
+-cp src
+-main Main
+
+-lib haxeui-core
+-lib haxeui-hxwidgets
+-lib hxWidgets
+-lib json2object
+
+-D ABI=-MD
+-D WXSTATIC
+-D no-macro-cache
+
+-cpp build/hxwidgets
+--cmd mkdir -p build/hxwidgets/assets && echo "Creating assets folder"
+--cmd cp -rf assets/ build/hxwidgets/ && echo "Copying assets"

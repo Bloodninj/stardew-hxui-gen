@@ -1,28 +1,32 @@
-<vbox style="padding: 5px;" width="450">
+<vbox style="padding: 5px;" width="300">
     <style>
         .label {
             vertical-align: center;
         }
     </style>
     <hbox width="100%">
-        <image id="npcPortrait" width="64" height="64" resource="file://./assets/images/AnsweringMachine.png" style="border: 1px solid black" />
+        <image id="npcPortrait"  height="64" resource="file://./assets/images/AnsweringMachine.png" style="border: 1px solid black" />
         <vbox width="100%">
-            <dropdown width="150" id="characterDropdown" searchable="true" />
-            <dropdown id="reactionDropdown" disabled="true" />
+            <dropdown width="100%" id="characterDropdown" searchable="true" />
+            <dropdown width="100%" id="reactionDropdown" disabled="true" />
         </vbox>
     </hbox>
 
     <section-header text="Reactions" />
     <vbox width="100%">
+        <grid>
+            <label text="Tag" />
+            <dropdown id="reactionResponseDropdown" disabled="true" />
+        </grid>
         <tabview width="100%" id="reactionTabview" styleName="full-width-buttons">
             <box width="100%" id="beforeMovieTab" text="Before">
-                <textfield width="100%" id="beforeMovieText" placeholder="Before movie text" />
+                <textfield id="beforeMovieText" placeholder="Before movie text" disabled="true" />
             </box>
             <box width="100%" id="duringMovieTab" text="During">
-                <textfield width="100%" id="duringMovieText" placeholder="During movie text" />
+                <textfield id="duringMovieText" placeholder="During movie text" disabled="true" />
             </box>
             <box width="100%" id="afterMovieTab" text="After">
-                <textfield width="100%" id="afterMovieText" placeholder="After movie text" />
+                <textfield id="afterMovieText" placeholder="After movie text" disabled="true" />
             </box>
         </tabview>
     </vbox>

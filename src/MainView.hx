@@ -67,15 +67,20 @@ class MainView extends VBox {
                     reactionDropdown.disabled = false;
                     reactionDropdown.dataSource.clear();
                     var source = new ArrayDataSource<String>();
+                    trace("Character datasource data:");
                     for (react in npc.reactions) {
                         trace(react.id);
-                        source.add('${react.tag} (${react.id}');
+                        source.add('${react.tag} (${react.id})');
                     }
-                    trace('Data:');
+                    trace('Reaction dropdown data:');
+                    reactionDropdown.dataSource = source;
                     for (i in 0...reactionDropdown.dataSource.size) {
                         trace(reactionDropdown.dataSource.get(i));
                     }
-                    reactionDropdown.dataSource = source;
+                    // Set a default entry so that the onChange event triggers for the reaction dropdown
+                    reactionDropdown.selectedIndex = 0;
+                    // reactionDropdown_onChange(new UIEvent(UIEvent.CHANGE,false,reactionDropdown.dataSource));
+
                     break;
                 }
             }
@@ -95,7 +100,8 @@ class MainView extends VBox {
         for (npc in originalReactions) {
             if (npc.npcName == currentNPC) {
                 var reactList = npc.reactions.filter((item) -> {
-                    return ('${item.tag} (${item.id}' == reactionID);
+                    trace('${item.tag} (${item.id}) == ${reactionID}: ${'${item.tag} (${item.id}' == reactionID)}');
+                    return ('${item.tag} (${item.id})' == reactionID);
                 });
                 if (reactList.length > 0) {
                     var r = reactList[0];
